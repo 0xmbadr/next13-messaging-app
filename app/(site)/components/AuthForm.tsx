@@ -53,7 +53,8 @@ function AuthForm({}: Props) {
     if (variant === 'REGISTER') {
       axios
         .post('/api/register', data)
-        .catch(() => toast.error('Something went wrong!'))
+        .then(() => signIn('credentials', data))
+        .catch(() => toast.error('Somethings Went Wrong'))
         .finally(() => setIsLoading(false));
     }
 
@@ -69,6 +70,7 @@ function AuthForm({}: Props) {
 
           if (callback?.ok && !callback?.error) {
             toast.success('Logged In');
+            router.push('/users');
           }
         })
         .finally(() => setIsLoading(false));
