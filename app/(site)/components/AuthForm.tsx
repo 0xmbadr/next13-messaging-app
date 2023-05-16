@@ -70,6 +70,18 @@ function AuthForm({}: Props) {
 
   const socialAction = (action: string) => {
     setIsLoading(true);
+
+    signIn(action, { redirect: false })
+      .then((callback) => {
+        if (callback?.error) {
+          toast.error('Invalid Credentials');
+        }
+
+        if (callback?.ok && !callback?.error) {
+          toast.success('Logged In');
+        }
+      })
+      .finally(() => setIsLoading(false));
   };
 
   return (
@@ -120,8 +132,14 @@ function AuthForm({}: Props) {
             </div>
           </div>
           <div className="mt-6 flex gap-2">
-            <AuthSocialButton icon={BsGithub} onClick={() => {}} />
-            <AuthSocialButton icon={BsGoogle} onClick={() => {}} />
+            <AuthSocialButton
+              icon={BsGithub}
+              onClick={() => socialAction('github')}
+            />
+            <AuthSocialButton
+              icon={BsGoogle}
+              onClick={() => socialAction('google')}
+            />
           </div>
         </div>
         <div className="flex gap-2 justify-center text-sm mt-6 px-2 text-gray-500 items-center">
