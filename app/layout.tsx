@@ -1,5 +1,5 @@
 import './globals.css';
-import { Inter } from 'next/font/google';
+import ToasterContext from './context/ToastContext';
 
 export const metadata = {
   title: 'Messanger App',
@@ -13,7 +13,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <ToasterContext />
+        {children}
+      </body>
     </html>
   );
 }
