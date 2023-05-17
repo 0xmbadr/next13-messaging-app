@@ -1,3 +1,4 @@
+import AvatarGroup from '@/app/components/AvatarGroups';
 import Avatar from '@/app/components/sidebar/Avatar';
 import useOtherUser from '@/app/hooks/useOtherUser';
 import { FullConversationType } from '@/app/types';
@@ -66,7 +67,11 @@ const ConversationBox: React.FC<ConverationBoxType> = ({ data, selected }) => {
           ? 'bg-neutral-100 dark:bg-neutral-900'
           : 'bg-white dark:bg-black',
       )}>
-      <Avatar user={otherUser} />
+      {data.isGroup ? (
+        <AvatarGroup users={data.users} />
+      ) : (
+        <Avatar user={otherUser} />
+      )}
       <div className="min-w-0 flex-0">
         <div className="focus:outline-none">
           <div className="flex justify-between items-center mb-1">
