@@ -54,7 +54,7 @@ const ConversationBox: React.FC<ConverationBoxType> = ({ data, selected }) => {
       return lastMessage.body;
     }
 
-    return 'Started a Conversations';
+    return 'Started a Conversation';
   }, [lastMessage]);
 
   return (
@@ -75,7 +75,7 @@ const ConversationBox: React.FC<ConverationBoxType> = ({ data, selected }) => {
             </p>
             {lastMessage?.createdAt && (
               <p className="text-xs text-gray-400 font-light dark:text-gray-300 pl-2">
-                {format(new Date(lastMessage.createdAt), 'p')}
+                {/* {format(new Date(lastMessage.createdAt), 'p')} */}
               </p>
             )}
           </div>
