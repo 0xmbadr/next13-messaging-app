@@ -1,6 +1,7 @@
 import './globals.css';
 import ToasterContext from './context/ToastContext';
 import AuthContext from './context/AuthContext';
+import ActiveStatus from './components/ActiveStatus';
 
 export const metadata = {
   title: 'Messanger App',
@@ -17,6 +18,7 @@ export default function RootLayout({
       <body>
         <AuthContext>
           <ToasterContext />
+          <ActiveStatus />
           {children}
         </AuthContext>
       </body>
