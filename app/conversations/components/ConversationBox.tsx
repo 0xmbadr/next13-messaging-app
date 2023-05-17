@@ -48,7 +48,7 @@ const ConversationBox: React.FC<ConverationBoxType> = ({ data, selected }) => {
 
   const lastMessageText = useMemo(() => {
     if (lastMessage?.image) {
-      return 'Set an Image';
+      return 'Sent an Image';
     }
 
     if (lastMessage?.body) {
